@@ -1,0 +1,49 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+int cnt = 0;
+char s[50];
+int len = 0;
+void init()
+{
+	s[0] = '\0';
+}
+void reverse(int i)
+{
+	for (int k = i ; k < len; k++)
+	{
+		if (s[k] == '1')
+		{
+			s[k] = '0';
+		}
+		else
+		{
+			s[k] = '1';
+		}
+	}
+	cnt++;
+}
+int main()
+{
+	int t_case;
+	cin >> t_case;
+	for (int t = 1; t <= t_case; t++)
+	{
+		init();
+		cin >> s;
+		len = 0;
+		cnt = 0;
+		while (s[len])
+		{
+			len++;
+		}
+		for (int i = 0; i < len; i++)
+		{
+			if (s[i] == '1')
+			{
+				reverse(i);
+			}
+		}
+		cout << "#" << t << " " << cnt  << endl;
+	}
+}
