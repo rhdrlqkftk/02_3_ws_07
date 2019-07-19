@@ -1,0 +1,107 @@
+package day0716;
+
+ 
+
+import java.util.Arrays;
+
+import java.util.Scanner;
+
+ 
+
+public class Test6 {
+
+ 
+
+	public static void main(String[] args) {
+
+		// TODO Auto-generated method stub
+
+		Scanner sc = new Scanner(System.in);
+
+		int N = 8;
+
+		int M = sc.nextInt(); // 4
+
+		sc.nextLine();
+
+		char[][] map = new char[8][8];
+
+		for (int i = 0; i < N; i++) {
+
+			map[i] = sc.nextLine().toCharArray();
+
+//			for (int j = 0; j < N; j++) {
+
+//				map[i][j] = sc.nextLine();
+
+//			}
+
+		}
+
+		
+
+		System.out.println(Arrays.deepToString(map));
+
+		int T = M / 2;
+
+		int rol = 0;
+
+		for (int i = 0; i <= (N - M); i++) 
+
+		{
+
+			for (int j = 0; j <= (N - M); j++) 
+
+			{
+
+				int cnt = 0;
+
+				for (int k = 1; k <= T; k++) 
+
+				{
+
+					if (map[i][j] == map[i][j + M - k]) 
+
+					{
+
+						cnt++;
+
+					}
+
+				
+
+					if (map[j][i] == map[j + M - k][i]) 
+
+					{
+
+						cnt++;
+
+					}
+
+				}
+
+				if (T == cnt) 
+
+				{
+
+					rol++;
+
+				}
+
+ 
+
+			}
+
+		}
+
+	
+
+		System.out.println(rol);
+
+		
+
+	}
+
+ 
+
+}
