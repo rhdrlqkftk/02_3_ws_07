@@ -1,0 +1,53 @@
+#include<iostream>
+	using namespace std;
+	struct Food
+	{
+		int taste;
+		int calori;
+	}food[20];
+	int n, Cal_max;
+	int T_Max = 0;
+	void init()
+	{
+		for (int i = 0; i < 20; i++)
+		{
+			food[i].taste = 0;
+			food[i].calori = 0;
+		}
+		T_Max = 0;
+	}
+	void dfs(int cnt, int T_sum, int C_sum)
+	{
+		if ( C_sum > Cal_max) return;
+		if ( T_sum > T_Max)
+		{
+			T_Max = T_sum;
+		}
+		if (cnt == n)
+		{
+			return;
+		}
+		T_sum += food[cnt].taste;
+		C_sum += food[cnt].calori;
+		dfs(cnt + 1, T_sum, C_sum);
+		T_sum -= food[cnt].taste;
+		C_sum -= food[cnt].calori;
+		dfs(cnt + 1, T_sum, C_sum);
+	}
+	int main()
+	{
+		int t_case;
+		cin >> t_case;
+		for (int t = 1; t <= t_case; t++)
+		{
+			cin >> n >> Cal_max;
+			init();
+			for (int i = 0; i < n; i++)
+			{
+				cin >> food[i].taste >> food[i].calori;
+			}
+			dfs(0, 0, 0);
+			cout << "#" << t << " " << T_Max << endl;
+		}
+
+	}
