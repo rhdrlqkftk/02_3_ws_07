@@ -1,4 +1,4 @@
-// Á¤·Ä ¿¬½ÀÇÏ±â ÁÁÀº ¹®Á¦´Ù. 
+ï»¿// ìµœì ê²½ë¡œ
 package afternoon;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -34,7 +34,7 @@ public class Solution4 {
 			}
 			return ; 
 		}
-		if ( sum > Min) // ¾ÆÁ÷ ¿Ï¼ºµÇÁø ¾Ê¾ÒÁö¸¸ ´õ ÇØµµ  ÇÊ¿ä¾ø´Ù. 
+		if ( sum > Min) // ì´ê±° í•œì¤„ ì¶”ê°€í•´ì£¼ì—ˆë”ë‹ˆ 1503msì—ì„œ 356msë¡œ ì¤„ì—ˆë‹¤. 
 		{
 			return ; 
 		}
@@ -64,7 +64,7 @@ public class Solution4 {
 			E_x = sc.nextInt(); 
 			E_y = sc.nextInt();	
 			arr = new Person[N];
-			Min= Integer.MAX_VALUE; //ÃÊ±âÈ­ ÇÊ¿ä. 
+			Min= Integer.MAX_VALUE; 
 			for(int i =0 ; i <N; i++)
 			{
 				arr[i] = new Person(sc.nextInt(), sc.nextInt(), false);
@@ -76,18 +76,3 @@ public class Solution4 {
 	}
 }
 
-
-
-/*
- * 
- * 
-10
-5
-0 0 100 100 70  40 30 10 10 5  90 70 50 20
-6
-88 81 85 80 19  22 31 15 27 29  30 10 20 26 5  14
-10
-39 9 97 61 35 93 62 64 96 39 36 36 9 59 59 96 61 7 64 43 43 58 1 36
-...
- *
- */
