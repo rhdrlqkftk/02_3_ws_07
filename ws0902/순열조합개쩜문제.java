@@ -91,3 +91,21 @@ public class Solution4
 		}
 	}
 }
+//https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV2b_WPaAEIBBASw& 
+//문제 : 사랑의 카운슬러 
+//
+/*
+[인풋] 
+2
+4
+6 0
+3 3
+-7 2
+-4 -1
+2
+-100000 100000
+100000 -100000
+[아웃풋]
+#1 0
+#2 80000000000
+*/
