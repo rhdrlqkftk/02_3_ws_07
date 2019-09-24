@@ -1,4 +1,4 @@
-﻿package SWEX;
+package SWEX;
 
 import java.io.BufferedReader;
 import java.io.IOException;
