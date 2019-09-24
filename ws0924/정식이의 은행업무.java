@@ -1,100 +1,61 @@
-﻿package SWEX;
-
 import java.util.Scanner;
 
-public class SWHW {
-	static int[] master;
-	static int[] master1;
-	static long ans=0;
-	static boolean chk =false; 
-	static void solve()
+public class Solution {
+	static int n; 
+	static int m; 
+	static long Map[]; 
+	static class Point 
 	{
-		long d2 =0; 
-		long d3 =0; 
-		for(int i =0; i< master.length; i++)
+		int x; 
+		int y; 
+		Point(int x, int y)
 		{
-			d2 *=2; 
-			d2 += master[i];
-		}
-		for(int i =0; i< master1.length; i++)
-		{
-			d3 *=3; 
-			d3 += master1[i];
-		}
-		if( d2==d3)
-		{
-			chk = true; 
-			ans = d2; 
-		}
-		
-		return ; 
-	}
-	static void fs3()
-	{
-		for( int j =0 ;j < master1.length; j++)
-		{
-			for(int k =0; k<3; k++)
-			{
-				if(master1[j]== k) continue;
-				int tmp = master1[j]; 
-				master1[j]= k;
-				solve(); 
-				if( chk == true)
-				{
-					return;
-				}
-				master1[j]= tmp; 
-			}
+			this.x = x; 
+			this.y = y; 
 		}
 	}
-	static void fs2()
+	public static void main(String[] args) 
 	{
-		for(int i=0;  i<master.length; i++)
-		{
-			if( master[i] == 1)
-			{
-				master[i] = 0; 
-			}
-			else 
-			{
-				master[i] = 1;
-			}
-			fs3(); 
-			if( chk == true)
-			{
-				return;
-			}
-			if( master[i] == 1)
-			{
-				master[i] = 0; 
-			}
-			else 
-			{
-				master[i] = 1;
-			}
-		}
-	}
-	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int Tc = sc.nextInt();
-		for(int t = 1; t <= Tc; t++)
+		int Tc = sc.nextInt(); 
+		for(int t =1; t <= Tc; t++)
 		{
-			chk = false; 
-			String s = sc.next();
-			master = new int[s.length()];
-			for(int i=0 ; i< s.length(); i++)
-			{
-				master[i] =  Integer.parseInt(s.charAt(i)+ "");			
+			n = sc.nextInt();
+			Map = new long[n];
+			for(int i =0 ; i< n ;i++)
+			{				
+				Map[i] =sc.nextLong(); 
+				
 			}
-			s = sc.next();
-			master1 = new int[s.length()];
-			for(int i=0 ; i< s.length(); i++)
+			int cnt1 =0; 
+			int cnt2 =0; 
+			int res =0; 
+			boolean b  = true; 
+			for(int k =0;k <n-1;k++)
 			{
-				master1[i] = Integer.parseInt(s.charAt(i)+ "");			
+				if( b == true && Map[k+1] >Map[k])
+				{
+					cnt1++; 
+				}
+				else if( b== false && Map[k+1] > Map[k])
+				{
+					b = true; 
+					res += cnt1 * cnt2; 
+					cnt1 =1; 
+					cnt2 =0;  		
+				}
+				else if( b == true && Map[k+1] < Map[k])
+				{
+					b = false; 
+					cnt2++;  
+				}
+				else if( b == false && Map[k+1] < Map[k])
+				{
+					cnt2++;  
+				}
 			}
-			fs2();
-			System.out.println("#" + t+ " "+ ans);
-			
+			res += cnt1 * cnt2;
+			System.out.println("#" + t+ " "+res);
 		}
 	}
 }
