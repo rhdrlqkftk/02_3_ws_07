@@ -6,13 +6,13 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
-public class Main_»§Áı {
+public class Main_ë¹µì§‘ {
 	static char map[][];
 	static boolean visited[][];
 	static int R, C;
 	static int dx[] ={-1,0,1};
 	static int dy[] ={ 1,1,1};
-	static int ans =0; // Ãâ¹ßÁ¡¿¡¼­ µµÂøÁ¡±îÁöÀÇ °Å¸®. 
+	static int ans =0; // ì¶œë°œì ì—ì„œ ë„ì°©ì ê¹Œì§€ì˜ ê±°ë¦¬. 
 	static boolean boundary(int x,int y)
 	{
 		if( x < 0 || y < 0 || x >= R || y >= C)
