@@ -122,7 +122,7 @@ public class Main_탈출 {
 					return; 
 				}
 				for(int d=0; d<4; d++)
-				{
+				{	
 					int nx = beaver.x + dx[d];
 					int ny = beaver.y + dy[d];
 					if(!boundary(nx,ny)|| visitB[nx][ny]== true) continue; 
