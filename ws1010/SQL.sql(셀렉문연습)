@@ -1,0 +1,182 @@
+
+use hr; 
+show databases; 
+select database();
+show tables;
+
+select *from countries;
+
+desc departments;
+select * from departments;
+select * from employees;
+select count(*) from departments;
+select department_id from employees;
+select count(department_id) from employees;
+select  count(distinct department_id) from employees; 	  	
+select month(hire_date) as hmonth, count(*) count from employees 
+group by hmonth 
+having hmonth>=9 
+order by hmonth; 
+
+/*select , count(*) count from employees*/
+select (salary div 10000)*10000 mansal, count(*) count from employees
+group by mansal
+order by count desc limit 1;
+
+select concat(first_name , ',',last_name) fullname from employees;
+
+
+/* 아래 세개 다 같은거 */
+select * from employees where commission_pct !=0 ;
+select * from employees where commission_pct <> 0 ;
+SELECT 
+    *
+FROM
+    employees
+WHERE
+    commission_pct IS NOT NULL;
+select * from employees where first_name like '%a%'; /*a가 들어가는 사람*/
+select * from employees where first_name like 'a%'; /*a로 시작하는 사람*/
+select * from employees order by employee_id ;
+select * from employees order by employee_id limit 0,20; /*0번째부터 20개*/
+select * from employees order by employee_id limit 20,20; /*20번째부터 20개*/
+select * from employees order by employee_id limit 40,20; /*40번째부터 20개*/
+
+/* union 은 or 이라고 보면되나-- */
+select *from (
+(select * from employees where department_id= 80)
+union
+(select * from employees where department_id= 90)
+)aaa;
+
+select * from employees 
+where department_id in (80,90);
+
+select email from employees;
+select substr(email,1,9) from employees;
+select concat(lower(substr(email,1,1)),'', upper(substr(email,2)))initemail from employees;
+
+select hire_date , year(hire_date), substr(hire_date,1,4) from employees;
+select str_to_date('2019-10-01','%Y-%m-%d'); 
+select date_format(hire_date,'%Y-%m-%d')from employees;
+select date_add(now(), interval 1 day) as tomorrow;
+select date_sub(now(), interval 1 day) as yesterday;
+select datediff(now(), hire_date) as dirhire from employees;
+select curdate();
+select curtime();
+select date_format(curtime(), "%H%i%s")as wj;
+
+select date_format(hire_date, '%Y%m%d%H%i')from employees;
+
+select datediff(now(), hire_date) div 7 as difhire from employees;
+
+select department_id, avg(salary)
+from employees
+group by department_id;
+
+select avg(salary) from employees;
+
+select department_id, avg(salary) avgs
+from employees
+group by department_id
+having avgs >(select avg(salary) from employees);
+
+select * from employees;
+select job_id, avg(salary), count(*) as cnt from 
+employees
+group by job_id
+having cnt>=2
+order by cnt;
+
+
+select * from employees;
+select * from jobs;
+
+select job_id, count(*), avg(salary)
+from employees
+group by job_id;
+
+select job_id, count(*), avg(salary)
+from employees
+group by job_id
+having job_id not like '%MAN';
+
+/* left outer join , right outer join */
+select * from employees;
+/*아래 3개 같은거 */
+select e.employee_id, e.first_name , m.employee_id, m.first_name
+from employees e, employees m
+where e.manager_id = m.employee_id; 
+
+select e.employee_id, e.first_name , m.employee_id, m.first_name
+from employees e join employees m
+on e.manager_id = m.employee_id; 
+
+select e.employee_id, e.first_name , m.employee_id, m.first_name
+from employees e inner join employees m
+on e.manager_id = m.employee_id; 
+
+select e.employee_id, e.first_name , m.employee_id, m.first_name
+from employees e join employees m
+on e.employee_id = m.employee_id; 
+
+
+select job_id,count(*) from employees group by job_id;
+
+select count(distinct job_id) from employees;
+
+/* 2번 total */
+select sum(salary) from employees;
+/* 3번 min, max */
+select max(salary), min(salary), avg(salary) from employees where job_id ='IT_PROG';
+select max(salary), min(salary), avg(salary), job_id from employees group by job_id having job_id like 'IT%';
+
+/* 5번 부서 90에서 일하는 사람의 숫자와 평균 */
+select department_id, avg(salary), count(*) from employees where department_id = 90;
+
+/* 6번 the highest, lowest, sum, and average salary of all employees. */
+select  max(salary) max, min(salary),sum(salary), avg(salary) from employees;
+
+/* 7번 */
+select job_id,count(*) from employees group by job_id;
+
+/* 8번 최대 최소 차이*/
+SELECT MAX(salary),MIN(salary)  ,MAX(salary) - MIN(salary) DIFFERENCE 
+FROM employees;
+
+/* 9번 */
+select *from employees where salary = (select min(salary) from employees) and manager_id !=0;
+select manager_id, min(salary) from employees where manager_id !=0;
+
+/* 10번 */
+select department_id , sum(salary) from employees group by department_id;
+
+/* 11번 */
+select job_id,avg(salary) from employees group by job_id having job_id not like 'IT%';
+select job_id,avg(salary) from employees where job_id <> 'IT_PROG' group by job_id ;
+ 
+/* 12번 */
+SELECT 
+	job_id,
+    MAX(salary),
+    MIN(salary),
+    AVG(salary),
+    COUNT(*)
+FROM
+    employees
+WHERE
+    department_id = 90
+group by job_id;
+
+/* 13번 */
+SELECT job_id, MAX(salary) FROM employees
+group by job_id
+having MAX(salary) >= 4000;
+/* 14번 */
+SELECT department_id, count(department_id), avg(salary) FROM employees
+group by department_id
+having count(department_id) >=10;
+
+SELECT department_id, count(*), avg(salary) FROM employees
+group by department_id
+having count(*) >=10;
