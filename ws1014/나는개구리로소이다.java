@@ -1,61 +1,77 @@
-package ssafy1001;
+package ssafy1014;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-import java.util.Scanner;
-public class Main_»§Áı {
-	static char map[][];
-	static boolean visited[][];
-	static int R, C;
-	static int dx[] ={-1,0,1};
-	static int dy[] ={ 1,1,1};
-	static int ans =0; // Ãâ¹ßÁ¡¿¡¼­ µµÂøÁ¡±îÁöÀÇ °Å¸®. 
-	static boolean boundary(int x,int y)
-	{
-		if( x < 0 || y < 0 || x >= R || y >= C)
-		{
-			return false; 
-		}
-		return true; 
-	}
-	
-	public static void main(String[] args)throws IOException 
-	{
+import java.util.Arrays;
+import java.util.StringTokenizer;
+
+//ìœ ë‹ˆì˜¨ íŒŒì¸ë“œ 
+public class ë‚˜ëŠ”ê°œêµ¬ë¦¬ë¡œì†Œì´ë‹¤ {
+	static int N, M;
+	static int croak[];
+
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		
-		String rc[]  = br.readLine().split(" "); 
-		R = Integer.parseInt(rc[0]);
-		C = Integer.parseInt(rc[1]); 
-		map= new char[R][C];
-		visited = new boolean[R][C];
-		for(int i=0 ; i< R; i++)
-		{
-			map[i] = br.readLine().toCharArray(); 
+		// StringTokenizer st = new StringTokenizer(br.readLine());
+		int T = Integer.parseInt(br.readLine());
+		for (int tc = 1; tc <= T; tc++) {
+			String s = new String();
+			int ans = -1;
+			s = br.readLine();
+			char k = ' ';
+			croak = new int[5];
+			int croak1 = 0;
+			int max = 0;
+			boolean ck = false;
+			for (int i = 0; i < s.length(); i++) {
+				k = s.charAt(i);
+				if (k == 'c') {
+					croak[0]++;
+					croak1++;
+				} else if (k == 'r') {
+					if (croak[0] <= croak[1]) {
+						ck = true;
+						break;
+					}
+					croak[1]++;
+				} else if (k == 'o') {
+					if (croak[1] <= croak[2]) {
+						ck = true;
+						break;
+					}
+					croak[2]++;
+				} else if (k == 'a') {
+					if (croak[2] <= croak[3]) {
+						ck = true;
+						break;
+					}
+					croak[3]++;
+				} else if (k == 'k') {
+					if (croak[3] <= croak[4]) {
+						ck = true;
+						break;
+					}
+					croak[4]++;
+					if (croak1 > max) {
+						max = croak1;
+					}
+					croak1--; // ì´ˆê¸°í™”ë¥¼ 0ìœ¼ë¡œ í•˜ë©´ ì•ˆë˜ë„¤.. 
+				}
+			}
+
+			boolean chk = false;
+			if (ck == false) {
+				if (croak[0] == croak[1] && croak[0] == croak[2] && croak[0] == croak[3] && croak[0] == croak[4]) {
+					chk = true;
+				}
+			}
+			if (chk == true) {
+				System.out.println("#" + tc + " " + max);
+			} else if (chk == false) {
+				System.out.println("#" + tc + " " + -1);
+			}
+
 		}
-		for(int i=0 ; i < R; i++)
-		{
-			ans += pipe(i,0);
-		}
-		System.out.println(ans);
-	}
-	static int pipe(int x,int y)
-	{
-		map[x][y] = 'x';
-		if( y == C-1)
-		{
-			return 1;
-		}
-		for(int i =0 ; i <3; i++)
-		{
-			int nx = x+ dx[i];
-			int ny = y+ dy[i];
-			if( !boundary(nx,ny)) continue;  
-			if( map[nx][ny] =='x') continue;  
-			if(pipe(nx,ny)== 1) return 1; 
-		}
-		return 0;
 	}
 }
