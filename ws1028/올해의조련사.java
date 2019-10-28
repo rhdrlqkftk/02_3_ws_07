@@ -1,3 +1,4 @@
+//재밌는 문제
 package ws1028;
 import java.util.Comparator;
 import java.util.LinkedList;
