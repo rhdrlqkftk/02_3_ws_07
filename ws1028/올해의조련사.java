@@ -80,4 +80,6 @@ public class 올해의조련사 {
 		}
 	}
 }
+// 석현이가 알려준 팁. (linkedList엔 first, last가 있다)
 // (first, last) = get, remove, add
+// https://swexpertacademy.com/main/talk/solvingClub/problemView.do?solveclubId=AWv0G8c6S0wDFASy&contestProbId=AWXRgX36gSIDFAUo&probBoxId=AW4P8utaDbcDFAT0&type=PROBLEM&problemBoxTitle=워크샵+1028&problemBoxCnt=3
