@@ -4,7 +4,7 @@
 	import java.util.PriorityQueue;
 	import java.util.Scanner;
 	
-	//11 : 23 ºÐ ½ÃÀÛ. 
+	//11 : 23 ë¶„ ì‹œìž‘. 
 	public class NUMBER1 {
 		public static void main(String[] args) 
 		{
