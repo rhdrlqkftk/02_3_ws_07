@@ -2,7 +2,7 @@ package ws1028;
 
 import java.util.Scanner;
 
-public class µğÀúÆ®Ä«Æä {
+public class ë””ì €íŠ¸ì¹´í˜ {
 	static int Map[][] , N, Max;
 	static boolean visit[][] ;
 	static boolean num[]; 
