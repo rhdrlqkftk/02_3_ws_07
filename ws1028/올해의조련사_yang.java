@@ -1,6 +1,6 @@
 package ws1028;
 import java.util.Scanner;
-public class ¿ÃÇØÀÇÁ¶·Ã»ç_yang {
+public class ì˜¬í•´ì˜ì¡°ë ¨ì‚¬_yang {
 	static int N; 
 	public static void main(String[] args) {
 		Scanner sc= new Scanner(System.in);
@@ -14,23 +14,23 @@ public class ¿ÃÇØÀÇÁ¶·Ã»ç_yang {
 			{
 				input[i]= sc.next().charAt(0);
 			}
-			// left , right À§Ä¡   
+			// left , right ìœ„ì¹˜   
 			int left =0; 
 			int right = N-1;  
 			int rIdx =0;
 			while(true)
 			{
-				if( input[left] <input[right]) // ¿ŞÂÊ ¾ËÆÄºª ¸ÕÀú¿À´Â °æ¿ì
+				if( input[left] <input[right]) // ì™¼ìª½ ì•ŒíŒŒë²³ ë¨¼ì €ì˜¤ëŠ” ê²½ìš°
 				{
 					result[rIdx++] = input[left++];
 				}
-				else if( input[left] > input[right]) // ¿À¸¥ÂÊ¾ËÆÄºª ¸ÕÀú¿À´Â °æ¿ì
+				else if( input[left] > input[right]) // ì˜¤ë¥¸ìª½ì•ŒíŒŒë²³ ë¨¼ì €ì˜¤ëŠ” ê²½ìš°
 				{
 					result[rIdx++] = input[right--];
 				}
 				else 
 				{
-					if( left ==right) // °°´Ù¸é. 
+					if( left ==right) // ê°™ë‹¤ë©´. 
 					{
 						result[rIdx] = input[left];
 						break;

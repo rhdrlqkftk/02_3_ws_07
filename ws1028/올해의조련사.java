@@ -3,7 +3,7 @@ import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Scanner;
-public class ¿ÃÇØÀÇÁ¶·Ã»ç {
+public class ì˜¬í•´ì˜ì¡°ë ¨ì‚¬ {
 	static int N; 
 	static LinkedList<Character> l = new LinkedList<>();
 	static PriorityQueue<Character> pq = new PriorityQueue<>(new Comparator<Character>() {
@@ -36,7 +36,7 @@ public class ¿ÃÇØÀÇÁ¶·Ã»ç {
 			{
 				 start = l.getFirst();
 				 end   = l.getLast();	
-				 if( start - end == 0) // °°À»°æ¿ì¿¡´Â ¾î¶»°ÔÇØÁà¾ßÇØ? 
+				 if( start - end == 0) // ê°™ì„ê²½ìš°ì—ëŠ” ì–´ë–»ê²Œí•´ì¤˜ì•¼í•´? 
 				 {
 					 int tempL = 0; 
 					 int tempR = l.size()-1;
@@ -44,14 +44,14 @@ public class ¿ÃÇØÀÇÁ¶·Ã»ç {
 					 {
 						 continue;
 					 }
-					 if( tempL == tempR ) // ³¡±îÁö °°´Ù´Â°Å´Ï±î? 
+					 if( tempL == tempR ) // ëê¹Œì§€ ê°™ë‹¤ëŠ”ê±°ë‹ˆê¹Œ? 
 					 {
 						 System.out.print(end);
 						 l.removeLast();
 					 }
 					 else 
 					 {
-						 // left¸¦ ³ÖÀ»²¨¾ß right¸¦ ³ÖÀ»²¨¾ß? 
+						 // leftë¥¼ ë„£ì„êº¼ì•¼ rightë¥¼ ë„£ì„êº¼ì•¼? 
 						 if( l.get(tempL)-l.get(tempR) >0)
 						 {
 							 System.out.print(end);
@@ -67,12 +67,12 @@ public class ¿ÃÇØÀÇÁ¶·Ã»ç {
 				 else if( start - end > 0)
 				 {
 					 System.out.print(end);
-					 l.removeLast();  //³Ö¾îÁØ°Ç Á¦°Å ÇØÁà¾ßÁö.
+					 l.removeLast();  //ë„£ì–´ì¤€ê±´ ì œê±° í•´ì¤˜ì•¼ì§€.
 				 }
 				 else 
 				 {
 					 System.out.print(start);
-					 l.removeFirst();  //³Ö¾îÁØ°Ç Á¦°Å ÇØÁà¾ßÁö.
+					 l.removeFirst();  //ë„£ì–´ì¤€ê±´ ì œê±° í•´ì¤˜ì•¼ì§€.
 				 }
 			}
 			System.out.println();
