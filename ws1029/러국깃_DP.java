@@ -4,8 +4,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
-//DPÁ¤¸®. 
-public class ·¯±¹±ê_DP {
+//DPì •ë¦¬. 
+public class ëŸ¬êµ­ê¹ƒ_DP {
 	static int N, M ,ans, Min; 
 	static int W[], B[], R[]; 
 	
@@ -58,7 +58,7 @@ public class ·¯±¹±ê_DP {
 			
 			for(int i=2 ; i<N; i++)
 			{
-				dp[i][0] =dp[i-1][0] +W[i]; // Èò»öÀ¸·Î °è¼Ó ¸¸µå´Â °æ¿ì. 
+				dp[i][0] =dp[i-1][0] +W[i]; // í°ìƒ‰ìœ¼ë¡œ ê³„ì† ë§Œë“œëŠ” ê²½ìš°. 
 				dp[i][1] = Math.min(dp[i-1][0], dp[i-1][1]) +B[i];
 				dp[i][2] = Math.min(dp[i-1][1], dp[i-1][2]) +R[i]; 
 			}
