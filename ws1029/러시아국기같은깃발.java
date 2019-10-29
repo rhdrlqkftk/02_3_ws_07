@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class ·¯½Ã¾Æ±¹±â°°Àº±ê¹ß {
+public class ëŸ¬ì‹œì•„êµ­ê¸°ê°™ì€ê¹ƒë°œ {
 	static int N, M ,ans,  Min; 
 	static char Map[][],TMap[][];
 	public static void main(String[] args) throws Exception, IOException 
@@ -50,11 +50,11 @@ public class ·¯½Ã¾Æ±¹±â°°Àº±ê¹ß {
 			Min = Integer.MAX_VALUE;
 			dfs(1,0,0,1);
 			
-			// ±âº»À¸·Î ¹Ù²ãµÎ°í ½ÃÀÛÇÏÀÚ. 
-			// ÀÌÁ¦ ¼ø¼­´Â Èò-> ÆÄ -> »¡ 
-			// Èò»ö, »¡Àº µé¾î¿Íµµ µÇ°í ¾Èµé¾îµµ µÇ°í. 
-			// ÆÄ¶õ»öÀº ¹«Á¶°Ç µé¾î¿Í¾ßÇÑ´Ù. 
-			// Èò »¡ ÆÄ ( 1,2,3À¸·Î µÑ±î ÀÏ´Ü )
+			// ê¸°ë³¸ìœ¼ë¡œ ë°”ê¿”ë‘ê³  ì‹œì‘í•˜ì. 
+			// ì´ì œ ìˆœì„œëŠ” í°-> íŒŒ -> ë¹¨ 
+			// í°ìƒ‰, ë¹¨ì€ ë“¤ì–´ì™€ë„ ë˜ê³  ì•ˆë“¤ì–´ë„ ë˜ê³ . 
+			// íŒŒë€ìƒ‰ì€ ë¬´ì¡°ê±´ ë“¤ì–´ì™€ì•¼í•œë‹¤. 
+			// í° ë¹¨ íŒŒ ( 1,2,3ìœ¼ë¡œ ë‘˜ê¹Œ ì¼ë‹¨ )
 			System.out.println("#"+tc+" "+ Min);
 		}
 	}
@@ -65,7 +65,7 @@ public class ·¯½Ã¾Æ±¹±â°°Àº±ê¹ß {
 			if( w ==0 || b==0 )return;
 			if( w+b+r != N-1)
 			{
-				return; // ²¨Á®. 
+				return; // êº¼ì ¸. 
 			}
 			if( Min > ans)
 			{
@@ -73,7 +73,7 @@ public class ·¯½Ã¾Æ±¹±â°°Àº±ê¹ß {
 			}
 			return ; 
 		}
-		// Èò»öÀ¸·Î °¡´Â°æ¿ì. 
+		// í°ìƒ‰ìœ¼ë¡œ ê°€ëŠ”ê²½ìš°. 
 		if( b==0 && r ==0 && cnt <N-2)
 		{
 			int ttt=0;
@@ -93,7 +93,7 @@ public class ·¯½Ã¾Æ±¹±â°°Àº±ê¹ß {
 				Map[cnt][j] =TMap[cnt][j];
 				
 			}
-		} // b·Î°¡´Â°æ¿ì.
+		} // bë¡œê°€ëŠ”ê²½ìš°.
 		if( r == 0 && cnt <N-1)
 		{
 			int ttt =0;
