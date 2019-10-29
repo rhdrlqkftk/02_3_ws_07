@@ -2,38 +2,38 @@ package ws1029;
 
 import java.util.Scanner;
 
-public class RGB¸¶À» {
+public class RGBë§ˆì„ {
 	static int N; 	
 	static int price[][];
 	static int dp[][];
-	// R G B´Â ÇØ´ç Áı¿¡ »¡, ³ì, ÆÄ ¸¦ Ä¥ÇßÀ» ¶§ ºñ¿ëÀ» ¸»ÇÔ. 
+	// R G BëŠ” í•´ë‹¹ ì§‘ì— ë¹¨, ë…¹, íŒŒ ë¥¼ ì¹ í–ˆì„ ë•Œ ë¹„ìš©ì„ ë§í•¨. 
 	public static void main(String[] args) 
 	{
 		Scanner sc = new Scanner(System.in);
-		N = sc.nextInt(); //ÁıÀÇ °¹¼ö. 
+		N = sc.nextInt(); //ì§‘ì˜ ê°¯ìˆ˜. 
 		price = new int [N+1][3];
 		dp = new int [N+1][3];
 		for(int i=1; i <=N; i++)
 		{
-			for(int j=0;j<3;j++) // 3°³Áß¿¡ ÇÏ³ª »ö±ò. 
+			for(int j=0;j<3;j++) // 3ê°œì¤‘ì— í•˜ë‚˜ ìƒ‰ê¹”. 
 			{
 				price[i][j] = sc.nextInt();
 			}
 		}
 		
-		for(int i=1;i <=N; i++) // i¹ø Áıµé ÇÏ³ª¾¿ Áõ°¡½ÃÅ°¸é¼­ ´©Àû°ª °è»êÇØ³ª°¡±â.
+		for(int i=1;i <=N; i++) // ië²ˆ ì§‘ë“¤ í•˜ë‚˜ì”© ì¦ê°€ì‹œí‚¤ë©´ì„œ ëˆ„ì ê°’ ê³„ì‚°í•´ë‚˜ê°€ê¸°.
 		{
-			for(int j =0;j<3;j++) // ÇöÀç i¹øÂ° Áı¿¡ j »ö»óÀ» Ä¥ÇÏ°íÀÚ ÇÑ´Ù¸é?
+			for(int j =0;j<3;j++) // í˜„ì¬ ië²ˆì§¸ ì§‘ì— j ìƒ‰ìƒì„ ì¹ í•˜ê³ ì í•œë‹¤ë©´?
 			{
 				int Min = Integer.MAX_VALUE;
-				for(int k=0;k <3; k++) // ¾ÕÁıÀÇ »ö»ó 3°¡Áö Áß j¸¦ Á¦¿ÜÇÑ »ö»ó k¸¦ º¸¸é¼­ ÀÛÀº °ª Ã£±â.
+				for(int k=0;k <3; k++) // ì•ì§‘ì˜ ìƒ‰ìƒ 3ê°€ì§€ ì¤‘ jë¥¼ ì œì™¸í•œ ìƒ‰ìƒ kë¥¼ ë³´ë©´ì„œ ì‘ì€ ê°’ ì°¾ê¸°.
 				{
 					if( k!=j && dp[i-1][k] < Min)
 					{
 						Min = dp[i-1][k];
 					}
 				}
-				// 1 0 = Min(Àü°ª ) + price(ÇöÀç°ª) 
+				// 1 0 = Min(ì „ê°’ ) + price(í˜„ì¬ê°’) 
 				dp[i][j] = Min + price[i][j];
 			}
 		}
