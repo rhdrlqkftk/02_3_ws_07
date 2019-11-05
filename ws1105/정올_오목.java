@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
-public class Á¤¿Ã_¿À¸ñ {
-	// 1Àº °ËÀº»ö 
+public class ì •ì˜¬_ì˜¤ëª© {
+	// 1ì€ ê²€ì€ìƒ‰ 
 	static int dx[] = {-1,0,1,1}; 
 	static int dy[] = { 1,1,1,0}; 
 	static int t_dx[] = { 1, 0, -1,-1}; 
@@ -34,13 +34,13 @@ public class Á¤¿Ã_¿À¸ñ {
 		{
 			for (int j = 0; j <19; j++) 
 			{
-				int g = Map[i][j]; // °ªÀ» Àâ¾ÆÁÖ°í. 
+				int g = Map[i][j]; // ê°’ì„ ì¡ì•„ì£¼ê³ . 
 				if (g ==0)continue;
 				for(int d =0; d<4;d++)
 				{
 					int tnx = i +t_dx[d]; 
 					int tny = j +t_dy[d]; 
-					if( boundary(tnx, tny)) //¹üÀ§ ³»¿¡ ÀÖÀ¸¸é, 
+					if( boundary(tnx, tny)) //ë²”ìœ„ ë‚´ì— ìˆìœ¼ë©´, 
 					{
 						if( Map[tnx][tny]== g)
 						{
