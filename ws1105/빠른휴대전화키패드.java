@@ -4,7 +4,7 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
-public class ºü¸¥ÈÞ´ëÀüÈ­Å°ÆÐµå
+public class ë¹ ë¥¸íœ´ëŒ€ì „í™”í‚¤íŒ¨ë“œ
 {
 	public static void main(String[] args) throws Exception, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -34,7 +34,7 @@ public class ºü¸¥ÈÞ´ëÀüÈ­Å°ÆÐµå
 				String word = st.nextToken();
 				if( word.length() != s.length())continue;
 				boolean jw1 = false; 
-				for(int j =0; j<s.length(); j++)//6666 Ã³À½²¬ ³Ö´Â´Ù. 
+				for(int j =0; j<s.length(); j++)//6666 ì²˜ìŒê»„ ë„£ëŠ”ë‹¤. 
 				{
 					int idx = Integer.parseInt(s.charAt(j)+"");
 					boolean jw = false; 
@@ -45,7 +45,7 @@ public class ºü¸¥ÈÞ´ëÀüÈ­Å°ÆÐµå
 							jw= true; 
 						}						
 					}
-					if( jw == false) // jw°¡ true¿©¾ß ¸Â´Â°Í. 
+					if( jw == false) // jwê°€ trueì—¬ì•¼ ë§žëŠ”ê²ƒ. 
 					{
 						jw1 = true;
 					}
